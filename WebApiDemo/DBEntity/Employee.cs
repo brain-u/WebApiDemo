@@ -11,13 +11,23 @@ namespace WebApiDemo.DBEntity
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel;
+
     public partial class Employee
     {
+        [DisplayName("員工編號")]
         public int EmployeeID { get; set; }
+
+        [DisplayName("員工姓名")]
         public string Name { get; set; }
+
+        [DisplayName("職位")]
         public string Position { get; set; }
+
+        [DisplayName("年齡")]
         public Nullable<int> Age { get; set; }
+
+        [DisplayName("薪資")]
         public Nullable<int> Salary { get; set; }
     }
 }

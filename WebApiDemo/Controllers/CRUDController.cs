@@ -16,7 +16,7 @@ namespace WebApiDemo.Controllers
             IEnumerable<Employee> employeeData = null;
             HttpClient hc = new HttpClient
             {
-                BaseAddress = new Uri("https://localhost:44310/api/employee")
+                BaseAddress = new Uri("https://localhost:44310/api/Employee")
             };
 
             var consumeapi = hc.GetAsync("employee");
@@ -29,6 +29,32 @@ namespace WebApiDemo.Controllers
                 employeeData = displaydata.Result;
             }
             return View(employeeData);
+        }
+
+        //Create: CRUD
+        public ActionResult Create() {
+
+            return View();
+        }
+
+        //Create: CRUD
+        [HttpPost]
+        public ActionResult Create(Employee InsEmployee)
+        {
+            HttpClient hc = new HttpClient
+            {
+                BaseAddress = new Uri("https://localhost:44310/api/employee")
+            };
+            System.Threading.Tasks.Task<HttpResponseMessage> InsertRecord = hc.PostAsJsonAsync<Employee>("Employee", InsEmployee);
+            InsertRecord.Wait();
+
+            var SaveData = InsertRecord.Result;
+
+            if (SaveData.IsSuccessStatusCode)
+            {
+                return RedirectToAction("Index");
+            }
+            return View("Create");
         }
     }
 }

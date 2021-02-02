@@ -1,13 +1,13 @@
 ﻿@model IEnumerable<WebApiDemo.DBEntity.Employee>
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "首頁";
 }
 
 <h2>Index</h2>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @Html.ActionLink("新增資料", "Create")
 </p>
 <table class="table">
     <tr>
@@ -41,9 +41,9 @@
             @Html.DisplayFor(modelItem => item.Salary)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.EmployeeID }) |
-            @Html.ActionLink("Details", "Details", new { id=item.EmployeeID }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.EmployeeID })
+            @Html.ActionLink("修改", "Edit", new { id=item.EmployeeID }) |
+            @*@Html.ActionLink("Details", "Details", new { id=item.EmployeeID }) |*@
+            @Html.ActionLink("刪除", "Delete", new { id=item.EmployeeID })
         </td>
     </tr>
 }

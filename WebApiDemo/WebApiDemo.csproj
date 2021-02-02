@@ -258,6 +258,7 @@
       <DependentUpon>VertrustDemoModel.edmx</DependentUpon>
     </Content>
     <Content Include="Views\CRUD\Index.cshtml" />
+    <Content Include="Views\CRUD\Create.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
